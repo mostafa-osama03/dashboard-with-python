@@ -7,7 +7,7 @@ import overview, price_analysis
 
 theme = dbc.themes.MINTY
 app = Dash(__name__, external_stylesheets=[theme])
-
+server=app.server
 df = pd.read_csv('AB_NYC_2019_cleaned.csv')
 
 
@@ -24,4 +24,4 @@ app.layout = dbc.Container([    dbc.Row(html.H1(children='Airbnb Listings in NYC
                         ], fluid=True)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(port=8080)
