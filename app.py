@@ -5,7 +5,7 @@ import pandas as pd
 
 
 app = Dash(__name__)
-
+server=app.server
 df = pd.read_csv('AB_NYC_2019_cleaned.csv')
 
 fig = px.scatter(df, x="latitude", y="longitude", color="neighbourhood_group", size="price",
@@ -35,4 +35,4 @@ app.layout = html.Div([     html.H1(children='Airbnb Listings in NYC', className
                         ])
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(port=8080)
